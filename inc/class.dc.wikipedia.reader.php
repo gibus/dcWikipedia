@@ -1,23 +1,24 @@
 <?php
-# -- BEGIN LICENSE BLOCK ----------------------------------
-# This file is part of dcWikipedia, a plugin for Dotclear.
-# 
-# Copyright (c) 2009-2010 Tomtom
-# http://blog.zenstyle.fr/
-# 
-# Licensed under the GPL version 2.0 license.
-# A copy of this license is available in LICENSE file or at
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-# -- END LICENSE BLOCK ------------------------------------
+/**
+ * @brief dcWikipedia, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @author Tomtom and Gibus
+ *
+ * @copyright Tomtom, Gibus gibus@sedrati.xyz
+ * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
+ */
 
 class dcWikipediaReader extends netHttp
 {
 	protected $user_agent 		= 'Dotclear Wikipedia API reader/0.1';
 	protected $timeout 			= 5;
-	protected $validators 		= null;			///< <b>array</b>	HTTP Cache validators
-	protected $cache_dir 		= null;			///< <b>string</b>	Cache temporary directory
+	protected $validators 		= null;				///< <b>array</b>	HTTP Cache validators
+	protected $cache_dir 		= null;				///< <b>string</b>	Cache temporary directory
 	protected $cache_file_prefix 	= 'dcwp';			///< <b>string</b>	Cache file prefix
-	protected $cache_ttl 		= '-30 minutes';	///< <b>string</b>	Cache TTL
+	protected $cache_ttl 		= '-30 minutes';		///< <b>string</b>	Cache TTL
 
 	public function __construct()
 	{
@@ -85,7 +86,6 @@ class dcWikipediaReader extends netHttp
 		if (!self::readURL($url,$ssl,$host,$port,$path,$user,$pass)) {
 			return false;
 		}
-		$this->setTimeout($this->timeout);
 		$this->setHost($host,$port);
 		$this->useSSL($ssl);
 		$this->setAuthorization($user,$pass);

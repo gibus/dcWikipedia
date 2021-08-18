@@ -1,21 +1,34 @@
 <?php
-# -- BEGIN LICENSE BLOCK ----------------------------------
-# This file is part of dcWikipedia, a plugin for Dotclear.
-# 
-# Copyright (c) 2009-2010 Tomtom
-# http://blog.zenstyle.fr/
-# 
-# Licensed under the GPL version 2.0 license.
-# A copy of this license is available in LICENSE file or at
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-# -- END LICENSE BLOCK ------------------------------------
+/**
+ * @brief dcWikipedia, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @author Tomtom and Gibus
+ *
+ * @copyright Tomtom, Gibus gibus@sedrati.xyz
+ * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
+ */
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $this->registerModule(
-		/* Name */			"dcWikipedia",
-		/* Description*/		"Search, find and link any word or expression on Wikipedia",
-		/* Author */			"Tomtom (http://blog.zenstyle.fr)",
-		/* Version */			'0.2.3',
-		/* Permissions */		'usage'
+		'dcWikipedia',                                               // Name
+		'Search, find and link any word or expression on Wikipedia', // Description
+		'Tomtom & Gibus',                                            // Author
+		'0.3.0',                                                     // Version
+    [
+        'requires'    => [['core', '2.17']],                     // Dependencies
+        'permissions' => 'usage,contentadmin',                   // Permissions
+        'type'        => 'plugin',                               // Type
+        'priority'    => 666,                                    // Priority
+        'support'     => 'https://github.com/gibus/dcWikipedia', // Support URL
+        'settings'    => [                                       // Settings
+            'self' => false
+        ]
+    ]
 );
 
 ?>
