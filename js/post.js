@@ -175,7 +175,7 @@ jsToolBar.prototype.elements.dcWikipedia.fncall.wysiwyg = function()
 	a.href = this.elements.dcWikipedia.data.dcWikipediaUri;
 	
 	a.setAttribute('class','dcwikipedia');
-	a.setAttribute('titel',this.elements.dcWikipedia.data.dcWikipediaValue);
+	a.setAttribute('title',this.elements.dcWikipedia.data.dcWikipediaValue);
 
 	if (dcWikipedia.option.langFlag == 'yes') a.setAttribute('hreflang',d.dcWikipediaLang);
 
