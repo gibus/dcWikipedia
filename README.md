@@ -7,4 +7,4 @@ This plugin was first developped by Tomtmo33, see https://lab.dotclear.org/wiki/
 
 Since it was not maintained any more, I've fixed the plugin so that it works now with Dotclear 2.19. Morever, this version 0.3.0 adds support for _dcCKEditor_ in addition to _dcLegacyEditor_.
 
-hreflang attribute is added on Wikipedia link by default. To unactivate this feature, change the `dcwp_add_lang_flag` option in `about:config`.
+`hreflang` attribute is added on Wikipedia link by default. To unactivate this feature, change the `dcwp_add_lang_flag` option in `about:config`.
