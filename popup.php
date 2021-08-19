@@ -13,24 +13,24 @@
 
 $value = isset($_GET['value']) ? rawurldecode($_GET['value']) : '';
 $lang = isset($_GET['lang']) ? rawurldecode($_GET['lang']) : '';
-$json = isset($_GET['json']) ? true : false;
 
 $parser = dcWikipediaReader::quickParse('http://'.$lang.'.wikipedia.org/w/api.php?action=opensearch&format=xml&search='.rawurlencode($value),DC_TPL_CACHE);
 
+$flag = 'no';
+$flag = $core->blog->settings->dcwikipedia->dcwp_add_lang_flag ? 'yes' : 'no';
+
 ?>
 
-<?php if ($json) {
-  header('Content-type: application/json');
-  $res = $parser->getItems();
-  echo json_encode($res);
-  exit();
-} else {
-?>
 <html>
 <head>
 	<title><?php echo __('dcWikipedia'); ?></title>
 	<?php echo dcPage::jsLoad(DC_ADMIN_URL.'?pf=dcWikipedia/js/popup.js'); ?>
 	<style type="text/css">@import '<?php echo DC_ADMIN_URL; ?>?pf=dcWikipedia/style.css';</style>
+  <script type="text/javascript">
+  //<![CDATA[
+  const dcWikipedia_option_langFlag = '<?php echo $flag; ?>';
+  //]]>
+  </script>
 </head>
 
 <body>
@@ -94,4 +94,3 @@ else {
 
 </body>
 </html>
-<?php } /*!$json*/ ?>

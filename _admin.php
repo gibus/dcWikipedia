@@ -18,7 +18,6 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 $core->addBehavior('adminPostHeaders',array('dcWikipediaBehaviors','postHeaders'));
 $core->addBehavior('adminPageHeaders',array('dcWikipediaBehaviors','postHeaders'));
 $core->addBehavior('adminRelatedHeaders',array('dcWikipediaBehaviors','postHeaders'));
-$core->addBehavior('adminPostEditor', ['dcWikipediaBehaviors', 'adminPostEditor']);
 $core->addBehavior('ckeditorExtraPlugins', ['dcWikipediaBehaviors', 'ckeditorExtraPlugins']);
 
 class dcWikipediaBehaviors
@@ -48,46 +47,7 @@ class dcWikipediaBehaviors
         return $res;
     }
 
-    public static function adminPostEditor($editor = '', $context = '', array $tags = [], $syntax = '')
-    {
-        global $core;
-
-        $rs = $core->blog->getLangs(array('order'=>'asc'));
-        $all_langs = l10n::getISOcodes(0,1);
-        $lang_combo = array('' => '', __('Most used') => array(), __('Available') => l10n::getISOcodes(1,1));
-        while ($rs->fetch()) {
-          if (isset($all_langs[$rs->post_lang])) {
-            $lang_combo[__('Most used')][$all_langs[$rs->post_lang]] = $rs->post_lang;
-            unset($lang_combo[__('Available')][$all_langs[$rs->post_lang]]);
-          } else {
-            $lang_combo[__('Most used')][$rs->post_lang] = $rs->post_lang;
-          }
-        }
-        unset($rs);
-
-        $res = '';
-        if ($editor == 'dcCKEditor') {
-            $res .= dcPage::jsJson('ck_editor_dcwikipedia', [
-                'admin_url'     => DC_ADMIN_URL,
-                'title'         => __('dcWikipedia'),
-                'add_label'     => __('Add a Wikipedia link'),
-                'most_used'     => __('Most used'),
-                'available'     => __('Available'),
-                'lang'          => __('Lang:'),
-                'no_suggestion' => __('No suggestion found for : %s in %s'),
-                'read_more'     => __('Read more...'),
-                'cancel'        => __('cancel'),
-                'insert'        => __('insert'),
-                'langs'         => $lang_combo
-            ]);
-            $res .= dcPage::cssLoad(dcPage::getPF('dcWikipedia/cke-addon/style.css'));
-        }
-
-        return $res;
-    }
-
-    public static function ckeditorExtraPlugins(ArrayObject $extraPlugins, $context = '')
-    {
+    public static function ckeditorExtraPlugins(ArrayObject $extraPlugins, $context = '') {
         $extraPlugins[] = [
             'name'   => 'dcwikipedia',
             'button' => 'dcWikipedia',
