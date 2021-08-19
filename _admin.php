@@ -29,6 +29,7 @@ class dcWikipediaBehaviors
         $flag = 'no';
         $flag = $core->blog->settings->dcwikipedia->dcwp_add_lang_flag ? 'yes' : 'no';
         $params['post_id'] = $_REQUEST['id'];
+        $params['post_type'] = '';
         $post = $core->blog->getPosts($params);
 
         $res = '';
