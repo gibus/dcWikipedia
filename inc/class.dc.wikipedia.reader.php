@@ -83,6 +83,13 @@ class dcWikipediaReader extends netHttp
 
 	protected function getModulesXML($url)
 	{
+    $ssl  = false;
+    $host = '';
+    $port = 0;
+    $path = '';
+    $user = '';
+    $pass = '';
+
 		if (!self::readURL($url,$ssl,$host,$port,$path,$user,$pass)) {
 			return false;
 		}
@@ -155,7 +162,7 @@ class dcWikipediaReader extends netHttp
 		return false;
 	}
 
-	protected function buildRequest()
+	protected function buildRequest(): array
 	{
 		$headers = parent::buildRequest();
 

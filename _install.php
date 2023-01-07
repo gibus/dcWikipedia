@@ -15,23 +15,17 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$new_version = $core->plugins->moduleInfo('dcWikipedia', 'version');
-$old_version = $core->getVersion('dcWikipedia');
-
-if (version_compare($old_version, $new_version, '>=')) {
+if (!dcCore::app()->newVersion(basename(__DIR__), dcCore::app()->plugins->moduleInfo(basename(__DIR__), 'version'))) {
     return;
 }
 
 
 try {
-    $core->blog->settings->addNamespace('dcwikipedia');
-    $core->blog->settings->dcwikipedia->put('dcwp_add_lang_flag', true, 'boolean', 'Add Wikipedia lang flag', false, true);
-
-    $core->setVersion('dcWikipedia', $new_version);
-
+    dcCore::app()->blog->settings->addNamespace('dcwikipedia');
+    dcCore::app()->blog->settings->dcwikipedia->put('dcwp_add_lang_flag', true, 'boolean', 'Add Wikipedia lang flag', false, true);
     return true;
 } catch (Exception $e) {
-    $core->error->add($e->getMessage());
+    dcCore::app()->error->add($e->getMessage());
 }
 
 return false;

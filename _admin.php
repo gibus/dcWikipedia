@@ -15,22 +15,20 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$core->addBehavior('adminPostHeaders',array('dcWikipediaBehaviors','postHeaders'));
-$core->addBehavior('adminPageHeaders',array('dcWikipediaBehaviors','postHeaders'));
-$core->addBehavior('adminRelatedHeaders',array('dcWikipediaBehaviors','postHeaders'));
-$core->addBehavior('ckeditorExtraPlugins', ['dcWikipediaBehaviors', 'ckeditorExtraPlugins']);
+dcCore::app()->addBehavior('adminPostHeaders',array('dcWikipediaBehaviors','postHeaders'));
+dcCore::app()->addBehavior('adminPageHeaders',array('dcWikipediaBehaviors','postHeaders'));
+dcCore::app()->addBehavior('adminRelatedHeaders',array('dcWikipediaBehaviors','postHeaders'));
+dcCore::app()->addBehavior('ckeditorExtraPlugins', ['dcWikipediaBehaviors', 'ckeditorExtraPlugins']);
 
 class dcWikipediaBehaviors
 {
     public static function postHeaders()
     {
-        global $core;
-        
         $flag = 'no';
-        $flag = $core->blog->settings->dcwikipedia->dcwp_add_lang_flag ? 'yes' : 'no';
+        $flag = dcCore::app()->blog->settings->dcwikipedia->dcwp_add_lang_flag ? 'yes' : 'no';
         $params['post_id'] = $_REQUEST['id'];
         $params['post_type'] = '';
-        $post = $core->blog->getPosts($params);
+        $post = dcCore::app()->blog->getPosts($params);
 
         $res = '';
         if (!$post->isEmpty() && $post->post_format == 'wiki') {

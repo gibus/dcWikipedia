@@ -17,7 +17,7 @@ $lang = isset($_GET['lang']) ? rawurldecode($_GET['lang']) : '';
 $parser = dcWikipediaReader::quickParse('http://'.$lang.'.wikipedia.org/w/api.php?action=opensearch&format=xml&search='.rawurlencode($value),DC_TPL_CACHE);
 
 $flag = 'no';
-$flag = $core->blog->settings->dcwikipedia->dcwp_add_lang_flag ? 'yes' : 'no';
+$flag = dcCore::app()->blog->settings->dcwikipedia->dcwp_add_lang_flag ? 'yes' : 'no';
 
 ?>
 
@@ -38,7 +38,7 @@ $flag = $core->blog->settings->dcwikipedia->dcwp_add_lang_flag ? 'yes' : 'no';
 
 <?php
 
-$rs = $core->blog->getLangs(array('order'=>'asc'));
+$rs = dcCore::app()->blog->getLangs(array('order'=>'asc'));
 $all_langs = l10n::getISOcodes(0,1);
 $lang_combo = array('' => '', __('Most used') => array(), __('Available') => l10n::getISOcodes(1,1));
 while ($rs->fetch()) {
@@ -59,7 +59,7 @@ form::hidden('value',$value).
 '<p><label for="lang">'.__('Lang:').''.
 form::combo('lang',$lang_combo,$lang).
 '</label></p>'.
-$core->formNonce().
+dcCore::app()->formNonce().
 '</form>';
 
 if (count($parser->getItems()) == 0) {

@@ -18,9 +18,9 @@ $this->registerModule(
 		'dcWikipedia',                                               // Name
 		'Search, find and link any word or expression on Wikipedia', // Description
 		'Tomtom & Gibus',                                            // Author
-		'0.3.0',                                                     // Version
+		'0.3.1',                                                     // Version
     [
-        'requires'    => [['core', '2.17']],                     // Dependencies
+        'requires'    => [['core', '2.24']],                     // Dependencies
         'permissions' => 'usage,contentadmin',                   // Permissions
         'type'        => 'plugin',                               // Type
         'priority'    => 666,                                    // Priority

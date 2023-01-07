@@ -11,7 +11,7 @@
  * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
  */
 
-$__autoload['dcWikipediaReader'] = dirname(__FILE__).'/inc/class.dc.wikipedia.reader.php';
-$__autoload['dcWikipediaParser'] = dirname(__FILE__).'/inc/class.dc.wikipedia.parser.php';
+Clearbricks::lib()->autoload(['dcWikipediaReader' => dirname(__FILE__).'/inc/class.dc.wikipedia.reader.php']);
+Clearbricks::lib()->autoload(['dcWikipediaParser' => dirname(__FILE__).'/inc/class.dc.wikipedia.parser.php']);
 
 ?>
