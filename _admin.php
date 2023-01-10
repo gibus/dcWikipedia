@@ -43,6 +43,10 @@ class dcWikipediaBehaviors
                 dcPage::jsVar('dcWikipedia.msg.noselection',__('Please, select a word or an expression')).
                 "\n//]]>\n".
                 "</script>\n";
+        } else {
+          $res = dcPage::jsJson('ck_editor_dcwikipedia', [
+              'title' => __('Wikipedia'),
+          ]);
         }
 
         return $res;
