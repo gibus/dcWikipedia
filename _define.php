@@ -15,10 +15,10 @@ if (!defined('DC_RC_PATH')) {
 }
 
 $this->registerModule(
-		'dcWikipedia',                                               // Name
-		'Search, find and link any word or expression on Wikipedia', // Description
-		'Tomtom & Gibus',                                            // Author
-		'0.3.1',                                                     // Version
+    'dcWikipedia',                                               // Name
+    'Search, find and link any word or expression on Wikipedia', // Description
+    'Tomtom & Gibus',                                            // Author
+    '0.3.1',                                                     // Version
     [
         'requires'    => [['core', '2.24']],                     // Dependencies
         'permissions' => 'usage,contentadmin',                   // Permissions
@@ -26,9 +26,7 @@ $this->registerModule(
         'priority'    => 666,                                    // Priority
         'support'     => 'https://github.com/gibus/dcWikipedia', // Support URL
         'settings'    => [                                       // Settings
-            'self' => false
-        ]
+            'self' => false,
+        ],
     ]
 );
-
-?>
