@@ -14,34 +14,25 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-dcCore::app()->addBehavior('adminPostHeaders', ['dcWikipediaBehaviors','postHeaders']);
-dcCore::app()->addBehavior('adminPageHeaders', ['dcWikipediaBehaviors','postHeaders']);
-dcCore::app()->addBehavior('adminRelatedHeaders', ['dcWikipediaBehaviors','postHeaders']);
-dcCore::app()->addBehavior('ckeditorExtraPlugins', ['dcWikipediaBehaviors', 'ckeditorExtraPlugins']);
+dcCore::app()->addBehavior('ckeditorExtraPlugins', [dcWikipediaBehaviors::class, 'ckeditorExtraPlugins']);
+dcCore::app()->addBehavior('adminPostEditor', [dcWikipediaBehaviors::class,'adminPostEditor']);
 
 class dcWikipediaBehaviors
 {
-    public static function postHeaders()
+    public static function adminPostEditor($editor = '')
     {
         $flag = 'no';
         $flag = dcCore::app()->blog->settings->dcwikipedia->dcwp_add_lang_flag ? 'yes' : 'no';
-        if (!empty($_REQUEST['id'])) {
-            $params['post_id'] = $_REQUEST['id'];
-        }
-        $params['post_type'] = '';
-        $post                = dcCore::app()->blog->getPosts($params);
 
         $res = '';
-        if (!$post->isEmpty() && $post->post_format == 'wiki') {
-            $res .= '<script type="text/javascript" src="index.php?pf=dcWikipedia/js/post.js"></script>' .
-                '<script type="text/javascript">' . "\n" .
-                "//<![CDATA[\n" .
-                dcPage::jsVar('jsToolBar.prototype.elements.dcWikipedia.title', __('Wikipedia')) .
-                dcPage::jsVar('dcWikipedia.option.langFlag', $flag) .
-                dcPage::jsVar('dcWikipedia.msg.noselection', __('Please, select a word or an expression')) .
-                "\n//]]>\n" .
-                "</script>\n";
-        } else {
+        if ($editor == 'dcLegacyEditor') {
+            $res = dcPage::jsJson('dc_editor_dcwikipedia', [
+                'title'       => __('Wikipedia media'),
+                'langFlag'    => $flag,
+                'noselection' =>  __('Please, select a word or an expression'),
+            ]) .
+            dcPage::jsModuleLoad('dcWikipedia/js/post.js', dcCore::app()->getVersion('dcWikipedia'));
+        } elseif ($editor == 'dcCKEditor') {
             $res = dcPage::jsJson('ck_editor_dcwikipedia', [
                 'title' => __('Wikipedia'),
             ]);
