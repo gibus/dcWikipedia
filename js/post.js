@@ -9,12 +9,12 @@
  * @copyright Tomtom & Gibus
  * @copyright GPL-2.0-only
  */
-var dcWikipedia = { msg :{}, option :{}};
 
+'use strict';
 jsToolBar.prototype.elements.dcWikipedia = 
 {
 	type: 'button',
-	title: 'Wikipedia',
+	title: dotclear.getData('dc_editor_dcwikipedia').title || 'Wikipedia',
 	context: 'post',
 	icon: 'index.php?pf=dcWikipedia/img/bt_dcwikipedia.png',
 	fn:{},
@@ -62,7 +62,7 @@ jsToolBar.prototype.elements.dcWikipedia =
 		}
 
 		if (res == '') {
-				alert(dcWikipedia.msg.noselection);
+				alert(dotclear.getData('dc_editor_dcwikipedia').noselection);
 		}
 		else {
 			var p_win = window.open(
@@ -83,7 +83,7 @@ jsToolBar.prototype.elements.dcWikipedia =
 		if (d.dcWikipediaValue != '0')
 		{
 			res += '<a href="'+d.dcWikipediaUri+'" class="dcwikipedia" title="'+d.dcWikipediaValue+'" ';
-			if (dcWikipedia.option.langFlag == 'yes')
+			if (dotclear.getData('dc_editor_dcwikipedia').langFlag == 'yes')
 			{
 				res += 'hreflang="'+d.dcWikipediaLang+'"';
 			}
@@ -116,7 +116,7 @@ jsToolBar.prototype.elements.dcWikipedia =
 		if (d.dcWikipediaValue != '0')
 		{
 			res += '|'+d.dcWikipediaUri;
-			if (dcWikipedia.option.langFlag == 'yes')
+			if (dotclear.getData('dc_editor_dcwikipedia').langFlag == 'yes')
 			{
 				res += '|'+d.dcWikipediaLang;
 			}
@@ -177,7 +177,7 @@ jsToolBar.prototype.elements.dcWikipedia.fncall.wysiwyg = function()
 	a.setAttribute('class','dcwikipedia');
 	a.setAttribute('title',this.elements.dcWikipedia.data.dcWikipediaValue);
 
-	if (dcWikipedia.option.langFlag == 'yes') a.setAttribute('hreflang',d.dcWikipediaLang);
+	if (dotclear.getData('dc_editor_dcwikipedia').langFlag == 'yes') a.setAttribute('hreflang',d.dcWikipediaLang);
 
 	a.appendChild(n);
 
