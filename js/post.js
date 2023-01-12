@@ -173,7 +173,7 @@ jsToolBar.prototype.elements.dcWikipedia.fncall.wysiwyg = function()
 	var a = this.iwin.document.createElement('a');
 
 	a.href = this.elements.dcWikipedia.data.dcWikipediaUri;
-	
+
 	a.setAttribute('class','dcwikipedia');
 	a.setAttribute('title',this.elements.dcWikipedia.data.dcWikipediaValue);
 
