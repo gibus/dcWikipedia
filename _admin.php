@@ -27,7 +27,7 @@ class dcWikipediaBehaviors
         $res = '';
         if ($editor == 'dcLegacyEditor') {
             $res = dcPage::jsJson('dc_editor_dcwikipedia', [
-                'title'       => __('Wikipedia media'),
+                'title'       => __('Wikipedia'),
                 'langFlag'    => $flag,
                 'noselection' => __('Please, select a word or an expression'),
             ]) .
