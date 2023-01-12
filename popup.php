@@ -22,9 +22,9 @@ $flag = dcCore::app()->blog->settings->dcwikipedia->dcwp_add_lang_flag ? 'yes' :
 
 <html>
 <head>
-	<title><?php echo __('dcWikipedia'); ?></title>
-	<?php echo dcPage::jsLoad(DC_ADMIN_URL . '?pf=dcWikipedia/js/popup.js'); ?>
-	<style type="text/css">@import '<?php echo DC_ADMIN_URL; ?>?pf=dcWikipedia/style.css';</style>
+    <title><?php echo __('dcWikipedia'); ?></title>
+    <?php echo dcPage::jsLoad(DC_ADMIN_URL . '?pf=dcWikipedia/js/popup.js'); ?>
+    <style type="text/css">@import '<?php echo DC_ADMIN_URL; ?>?pf=dcWikipedia/style.css';</style>
   <script type="text/javascript">
   //<![CDATA[
   const dcWikipedia_option_langFlag = '<?php echo $flag; ?>';

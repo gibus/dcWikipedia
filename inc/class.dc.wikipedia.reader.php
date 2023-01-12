@@ -14,10 +14,10 @@ class dcWikipediaReader extends netHttp
 {
     protected $user_agent        = 'Dotclear Wikipedia API reader/0.1';
     protected $timeout           = 5;
-    protected $validators        = null;				///< <b>array</b>	HTTP Cache validators
-    protected $cache_dir         = null;				///< <b>string</b>	Cache temporary directory
-    protected $cache_file_prefix = 'dcwp';			///< <b>string</b>	Cache file prefix
-    protected $cache_ttl         = '-30 minutes';		///< <b>string</b>	Cache TTL
+    protected $validators        = null;          ///< <b>array</b>  HTTP Cache validators
+    protected $cache_dir         = null;          ///< <b>string</b> Cache temporary directory
+    protected $cache_file_prefix = 'dcwp';        ///< <b>string</b> Cache file prefix
+    protected $cache_ttl         = '-30 minutes'; ///< <b>string</b> Cache TTL
 
     public function __construct()
     {
