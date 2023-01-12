@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<modules xmlns:da="http://dotaddict.org/da/">
+  <module id="dcWikipedia">
+    <name>dcWikipedia</name>
+    <version>0.3.1</version>
+    <author>Tomtom &amp; Gibus</author>
+    <desc>Search, find and link any word or expression on Wikipedia</desc>
+    <file>https://github.com/gibus/id/releases/download/version/type-id-version.zip</file>
+    <da:dcmin>2.24</da:dcmin>
+    <da:details>https://plugins.dotaddict.org/dc2/details/dcWikipedia</da:details>
+    <da:support>https://github.com/gibus/dcWikipedia</da:support>
+  </module>
+</modules>
