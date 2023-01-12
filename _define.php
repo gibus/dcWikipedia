@@ -15,21 +15,19 @@ if (!defined('DC_RC_PATH')) {
 }
 
 $this->registerModule(
-    'dcWikipedia',                                               // Name
-    'Search, find and link any word or expression on Wikipedia', // Description
-    'Tomtom & Gibus',                                            // Author
-    '0.3.1',                                                     // Version
+    'dcWikipedia',
+    'Search, find and link any word or expression on Wikipedia',
+    'Tomtom & Gibus',
+    '0.3.1',
     [
-        'requires'    => [['core', '2.24']],                     // Dependencies
+        'requires'    => [['core', '2.24']],
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]),
-        'type'        => 'plugin',                               // Type
-        'priority'    => dcModules::DEFAULT_PRIORITY + 666,     // Priority must be higher than dcLegacyEditor/dcCKEditor priority
-
-        'support'     => 'https://github.com/gibus/dcWikipedia', // Support URL
-        'settings'    => [                                       // Settings
+        'type'        => 'plugin',
+        'priority'    => dcModules::DEFAULT_PRIORITY + 6,
+        'settings'    => [
             'self' => false,
         ],
     ]
