@@ -19,12 +19,10 @@ class dcWikipediaParser
     {
         $this->xml = @simplexml_load_string($data);
 
-        if (!$this->xml) {
-            return false;
+        if ($this->xml) {
+          $this->_parse();
+          unset($data, $this->xml);
         }
-
-        $this->_parse();
-        unset($data, $this->xml);
 
     }
 
