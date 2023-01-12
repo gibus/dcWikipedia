@@ -135,6 +135,7 @@ class dcWikipediaReader extends netHttp
                 return unserialize(file_get_contents($cached_file));
             case '200':
                 $modules = new dcWikipediaParser($this->getContent());
+
                 try {
                     files::makeDir(dirname($cached_file), true);
                 } catch (Exception $e) {

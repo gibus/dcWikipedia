@@ -29,7 +29,7 @@ class dcWikipediaBehaviors
             $res = dcPage::jsJson('dc_editor_dcwikipedia', [
                 'title'       => __('Wikipedia media'),
                 'langFlag'    => $flag,
-                'noselection' =>  __('Please, select a word or an expression'),
+                'noselection' => __('Please, select a word or an expression'),
             ]) .
             dcPage::jsModuleLoad('dcWikipedia/js/post.js', dcCore::app()->getVersion('dcWikipedia'));
         } elseif ($editor == 'dcCKEditor') {

@@ -20,10 +20,9 @@ class dcWikipediaParser
         $this->xml = @simplexml_load_string($data);
 
         if ($this->xml) {
-          $this->_parse();
-          unset($data, $this->xml);
+            $this->_parse();
+            unset($data, $this->xml);
         }
-
     }
 
     protected function _parse()
