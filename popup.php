@@ -7,8 +7,8 @@
  *
  * @author Tomtom and Gibus
  *
- * @copyright Tomtom & Gibus
- * @copyright GPL-2.0-only
+ * @copyright Tomtom, Gibus gibus@sedrati.xyz
+ * @copyright WTFLP Version 2 http://www.wtfpl.net/
  */
 $value = isset($_GET['value']) ? rawurldecode($_GET['value']) : '';
 $lang  = isset($_GET['lang']) ? rawurldecode($_GET['lang']) : '';

@@ -7,8 +7,8 @@
  *
  * @author Tomtom and Gibus
  *
- * @copyright Tomtom & Gibus
- * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
+ * @copyright Tomtom, Gibus gibus@sedrati.xyz
+ * @copyright WTFLP Version 2 http://www.wtfpl.net/
  */
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;

@@ -8,7 +8,7 @@
  * @author Tomtom and Gibus
  *
  * @copyright Tomtom, Gibus gibus@sedrati.xyz
- * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
+ * @copyright WTFLP Version 2 http://www.wtfpl.net/
  */
 class dcWikipediaParser
 {
