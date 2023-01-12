@@ -26,7 +26,8 @@ $this->registerModule(
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]),
         'type'        => 'plugin',                               // Type
-        'priority'    => 666,                                    // Priority
+        'priority'    => dcModules::DEFAULT_PRIORITY  + 666,     // Priority must be higher than dcLegacyEditor/dcCKEditor priority
+
         'support'     => 'https://github.com/gibus/dcWikipedia', // Support URL
         'settings'    => [                                       // Settings
             'self' => false,
