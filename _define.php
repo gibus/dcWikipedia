@@ -30,5 +30,9 @@ $this->registerModule(
         'settings'    => [
             'self' => false,
         ],
+
+        'details'     => 'https://plugins.dotaddict.org/dc2/details/dcWikipedia',
+        'support'     => 'https://github.com/gibus/dcWikipedia',
+        'repository'  => 'https://raw.githubusercontent.com/gibus/dcWikipedia/master/dcstore.xml',
     ]
 );
