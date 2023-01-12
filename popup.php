@@ -38,14 +38,14 @@ $flag = dcCore::app()->blog->settings->dcwikipedia->dcwp_add_lang_flag ? 'yes' :
 <?php
 
 $rs         = dcCore::app()->blog->getLangs(['order' => 'asc']);
-$all_langs  = l10n::getISOcodes(0, 1);
-$lang_combo = ['' => '', __('Most used') => [], __('Available') => l10n::getISOcodes(1, 1)];
+$all_langs  = l10n::getISOcodes(false, true);
+$lang_combo = ['' => '', __('Most used') => [], __('Available') => l10n::getISOcodes(true, true)];
 while ($rs->fetch()) {
-    if (isset($all_langs[$rs->post_lang])) {
-        $lang_combo[__('Most used')][$all_langs[$rs->post_lang]] = $rs->post_lang;
-        unset($lang_combo[__('Available')][$all_langs[$rs->post_lang]]);
+    if (isset($all_langs[$rs->field('post_lang')])) {
+        $lang_combo[__('Most used')][$all_langs[$rs->field('post_lang')]] = $rs->field('post_lang');
+        unset($lang_combo[__('Available')][$all_langs[$rs->field('post_lang')]]);
     } else {
-        $lang_combo[__('Most used')][$rs->post_lang] = $rs->post_lang;
+        $lang_combo[__('Most used')][$rs->field('post_lang')] = $rs->field('post_lang');
     }
 }
 unset($rs);
