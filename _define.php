@@ -18,7 +18,7 @@ $this->registerModule(
     'dcWikipedia',
     'Search, find and link any word or expression on Wikipedia',
     'Tomtom & Gibus',
-    '0.3.1',
+    '0.3.2',
     [
         'requires'    => [['core', '2.24']],
         'permissions' => dcCore::app()->auth->makePermissions([
