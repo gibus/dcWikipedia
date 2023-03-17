@@ -26,7 +26,7 @@ $this->registerModule(
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]),
         'type'        => 'plugin',
-        'priority'    => dcModules::DEFAULT_PRIORITY + 6,
+        'priority'    => dcModuleDefine::DEFAULT_PRIORITY + 6,
         'settings'    => [
             'self' => false,
         ],
