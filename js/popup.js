@@ -19,8 +19,13 @@ $(function() {
     {
       e.preventDefault();
 
-      const editor_name = window.opener.$.getEditorName();
-      const editor = window.opener.CKEDITOR.instances[editor_name];
+      let editor = 0;
+      try {
+          editor = window.opener.CKEDITOR.instances[window.opener.$.getEditorName()];
+      } catch (err) {
+          console.log(err.name);
+          console.log(err.message);
+      }
 
       if (editor) {
         let link ='';
