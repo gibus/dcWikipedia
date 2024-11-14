@@ -10,43 +10,29 @@
  * @copyright Tomtom, Gibus gibus@sedrati.xyz
  * @copyright WTFLP Version 2 http://www.wtfpl.net/
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+namespace Dotclear\Plugin\dcWikipedia;
 
-dcCore::app()->addBehavior('ckeditorExtraPlugins', [dcWikipediaBehaviors::class, 'ckeditorExtraPlugins']);
-dcCore::app()->addBehavior('adminPostEditor', [dcWikipediaBehaviors::class,'adminPostEditor']);
+use Dotclear\App;
+use Dotclear\Core\Process;
 
-class dcWikipediaBehaviors
+class Backend extends Process
 {
-    public static function adminPostEditor($editor = '')
+    public static function init(): bool
     {
-        $flag = 'no';
-        $flag = dcCore::app()->blog->settings->dcwikipedia->dcwp_add_lang_flag ? 'yes' : 'no';
-
-        $res = '';
-        if ($editor == 'dcLegacyEditor') {
-            $res = dcPage::jsJson('dc_editor_dcwikipedia', [
-                'title'       => __('Wikipedia'),
-                'langFlag'    => $flag,
-                'noselection' => __('Please, select a word or an expression'),
-            ]) .
-            dcPage::jsModuleLoad('dcWikipedia/js/post.js', dcCore::app()->getVersion('dcWikipedia'));
-        } elseif ($editor == 'dcCKEditor') {
-            $res = dcPage::jsJson('ck_editor_dcwikipedia', [
-                'title' => __('Wikipedia'),
-            ]);
-        }
-
-        return $res;
+        return self::status(My::checkContext(My::BACKEND));
     }
 
-    public static function ckeditorExtraPlugins(ArrayObject $extraPlugins, $context = '')
+    public static function process(): bool
     {
-        $extraPlugins[] = [
-            'name'   => 'dcwikipedia',
-            'button' => 'dcWikipedia',
-            'url'    => DC_ADMIN_URL . 'index.php?pf=dcWikipedia/cke-addon/',
-        ];
+        if (!self::status()) {
+            return false;
+        }
+
+        App::behavior()->addBehaviors([
+            'ckeditorExtraPlugins' => BackendBehaviors::ckeditorExtraPlugins(...),
+            'adminPostEditor'      => BackendBehaviors::adminPostEditor(...),
+        ]);
+
+        return true;
     }
 }
