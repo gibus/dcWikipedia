@@ -3,9 +3,9 @@
  * @brief dcWikipedia, a plugin for Dotclear 2
  *
  * @package Dotclear
- * @subpackage Plugins
+ * @subpackage Plugin
  *
- * @author Tomtom and Gibus
+ * @author Tomtom & Gibus
  *
  * @copyright Tomtom, Gibus gibus@sedrati.xyz
  * @copyright WTFLP Version 2 http://www.wtfpl.net/
