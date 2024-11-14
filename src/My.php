@@ -10,12 +10,15 @@
  * @copyright Tomtom, Gibus gibus@sedrati.xyz
  * @copyright WTFLP Version 2 http://www.wtfpl.net/
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-$popup = isset($_GET['popup']) ? true : false;
+namespace Dotclear\Plugin\dcWikipedia;
 
-if ($popup) {
-    require dirname(__FILE__) . '/popup.php';
+use Dotclear\Module\MyPlugin;
+
+/**
+ * Plugin definitions
+ */
+class My extends MyPlugin
+{
 }
