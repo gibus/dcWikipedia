@@ -10,6 +10,10 @@
  * @copyright Tomtom, Gibus gibus@sedrati.xyz
  * @copyright WTFLP Version 2 http://www.wtfpl.net/
  */
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\dcWikipedia;
+
 class dcWikipediaParser
 {
     protected $xml;

@@ -10,7 +10,13 @@
  * @copyright Tomtom, Gibus gibus@sedrati.xyz
  * @copyright WTFLP Version 2 http://www.wtfpl.net/
  */
-class dcWikipediaReader extends netHttp
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\dcWikipedia;
+
+use Dotclear\Helper\File\Files;
+
+class dcWikipediaReader extends \netHttp
 {
     protected $user_agent        = 'Dotclear Wikipedia API reader/0.1';
     protected $timeout           = 5;
