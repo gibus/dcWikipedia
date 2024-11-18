@@ -47,7 +47,7 @@ class BackendBehaviors
         $extraPlugins[] = [
             'name'   => 'dcwikipedia',
             'button' => 'dcWikipedia',
-            'url'    => DC_ADMIN_URL . 'index.php?pf=dcWikipedia/cke-addon/',
+            'url'    => urldecode(App::config()->adminUrl() . Page::getPF(My::id() . '/cke-addon/')),
         ];
     }
 }

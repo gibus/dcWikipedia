@@ -49,10 +49,9 @@ $lang_combo = Combos::getLangsCombo(App::blog()->getLangs(['order' => 'asc']), t
 $all_langs  = L10n::getISOcodes(false, true);
 
 echo (new Form('dcwikipedia-lang-form'))
-    ->action(DC_ADMIN_URL . 'plugin.php')
+    ->action(My::manageUrl())
     ->method('get')
     ->fields([
-        (new Hidden('p', 'dcWikipedia')),
         (new Hidden('popup', '1')),
         (new Hidden('value', $value)),
         (new Para())->items([
