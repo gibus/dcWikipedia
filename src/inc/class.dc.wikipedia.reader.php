@@ -136,14 +136,14 @@ class dcWikipediaReader extends \netHttp
 
         switch ($this->getStatus()) {
             case '304':
-                @files::touch($cached_file);
+                @Files::touch($cached_file);
 
                 return unserialize(file_get_contents($cached_file));
             case '200':
                 $modules = new dcWikipediaParser($this->getContent());
 
                 try {
-                    files::makeDir(dirname($cached_file), true);
+                    Files::makeDir(dirname($cached_file), true);
                 } catch (Exception $e) {
                     return $modules;
                 }
@@ -151,7 +151,7 @@ class dcWikipediaReader extends \netHttp
                 if (($fp = @fopen($cached_file, 'wb'))) {
                     fwrite($fp, serialize($modules));
                     fclose($fp);
-                    files::inheritChmod($cached_file);
+                    Files::inheritChmod($cached_file);
                 }
 
                 return $modules;
