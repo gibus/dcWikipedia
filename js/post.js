@@ -11,10 +11,13 @@
  */
 
 'use strict';
+
+dotclear.dc_editor_dcwikipedia = dotclear.getData('dc_editor_dcwikipedia');
+
 jsToolBar.prototype.elements.dcWikipedia = 
 {
 	type: 'button',
-	title: dotclear.getData('dc_editor_dcwikipedia').title || 'Wikipedia',
+	title: dotclear.dc_editor_dcwikipedia.title || 'Wikipedia',
 	context: 'post',
 	icon: 'index.php?pf=dcWikipedia/img/bt_dcwikipedia.png',
 	fn:{},
@@ -62,7 +65,7 @@ jsToolBar.prototype.elements.dcWikipedia =
 		}
 
 		if (res == '') {
-				alert(dotclear.getData('dc_editor_dcwikipedia').noselection);
+				alert(dotclear.dc_editor_dcwikipedia.noselection);
 		}
 		else {
 			var p_win = window.open(
