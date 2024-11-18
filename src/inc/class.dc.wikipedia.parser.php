@@ -33,7 +33,7 @@ class dcWikipediaParser
     {
         if ($this->xml) {
             if (empty($this->xml->Section)) {
-                return;
+                return [];
             }
 
             foreach ($this->xml->Section->Item as $i) {
