@@ -36,8 +36,9 @@ $(function() {
             var dcWikipediaUri = $("input[name='dcwikipedia_uri']:checked").val();
             var dcWikipediaValue = $("input[name='dcwikipedia_value']").val();
             var dcWikipediaLang = $("input[name='dcwikipedia_lang']").val();
+            var dcWikipediaLangFlag = $("input[name='dcwikipedia_langFlag']").val();
 
-            link = '<a href="' + dcWikipediaUri + '" class="dcwikipedia" title="' + dcWikipediaValue + '"' + (dcWikipedia_option_langFlag == 'yes' ? ' hreflang="' + dcWikipediaLang + '"' : '') + '>' + selected_text + '</a>';
+            link = '<a href="' + dcWikipediaUri + '" class="dcwikipedia" title="' + dcWikipediaValue + '"' + (dcWikipediaLangFlag == 'yes' ? ' hreflang="' + dcWikipediaLang + '"' : '') + '>' + selected_text + '</a>';
             const element = window.opener.CKEDITOR.dom.element.createFromHtml(link);
             editor.insertElement(element);
           }
@@ -54,6 +55,7 @@ $(function() {
           data.dcWikipediaUri = $("input[name='dcwikipedia_uri']:checked").val();
           data.dcWikipediaValue = $("input[name='dcwikipedia_value']").val();
           data.dcWikipediaLang = $("input[name='dcwikipedia_lang']").val();
+          data.dcWikipediaLangFlag = $("input[name='dcwikipedia_langFlag']").val();
 
           tb.elements.dcWikipedia.fncall[tb.mode].call(tb);
 

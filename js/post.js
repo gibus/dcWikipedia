@@ -83,7 +83,7 @@ jsToolBar.prototype.elements.dcWikipedia =
 		if (d.dcWikipediaValue != '0')
 		{
 			res += '<a href="'+d.dcWikipediaUri+'" class="dcwikipedia" title="'+d.dcWikipediaValue+'" ';
-			if (dotclear.getData('dc_editor_dcwikipedia').langFlag == 'yes')
+			if (d.dcWikipediaLangFlag == 'yes')
 			{
 				res += 'hreflang="'+d.dcWikipediaLang+'"';
 			}
@@ -116,7 +116,7 @@ jsToolBar.prototype.elements.dcWikipedia =
 		if (d.dcWikipediaValue != '0')
 		{
 			res += '|'+d.dcWikipediaUri;
-			if (dotclear.getData('dc_editor_dcwikipedia').langFlag == 'yes')
+			if (d.dcWikipediaLangFlag == 'yes')
 			{
 				res += '|'+d.dcWikipediaLang;
 			}
@@ -177,7 +177,7 @@ jsToolBar.prototype.elements.dcWikipedia.fncall.wysiwyg = function()
 	a.setAttribute('class','dcwikipedia');
 	a.setAttribute('title',this.elements.dcWikipedia.data.dcWikipediaValue);
 
-	if (dotclear.getData('dc_editor_dcwikipedia').langFlag == 'yes') a.setAttribute('hreflang',d.dcWikipediaLang);
+	if (d.dcWikipediaLangFlag == 'yes') a.setAttribute('hreflang',d.dcWikipediaLang);
 
 	a.appendChild(n);
 
