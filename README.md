@@ -3,7 +3,7 @@
 [![Release](https://img.shields.io/github/v/release/gibus/dcWikipedia)](https://github.com/gibus/dcWikipedia/releases)
 [![Date](https://img.shields.io/github/release-date/gibus/dcWikipedia)](https://github.com/gibus/dcWikipedia/releases)
 [![Issues](https://img.shields.io/github/issues/gibus/dcWikipedia)](https://github.com/gibus/dcWikipedia/issues)
-[![Dotclear](https://img.shields.io/badge/dotclear-v2.24-blue.svg)](https://fr.dotclear.org/download)
+[![Dotclear](https://img.shields.io/badge/dotclear-v2.27-blue.svg)](https://fr.dotclear.org/download)
 [![Dotaddict](https://img.shields.io/badge/dotaddict-official-green.svg)](https://plugins.dotaddict.org/dc2/details/dcWikipedia)
 [![License](https://img.shields.io/github/license/gibus/dcWikipedia)](https://github.com/gibus/dcWikipedia/blob/master/LICENSE)
 
