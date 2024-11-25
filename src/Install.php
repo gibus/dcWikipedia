@@ -10,21 +10,32 @@
  * @copyright Tomtom, Gibus gibus@sedrati.xyz
  * @copyright WTFLP Version 2 http://www.wtfpl.net/
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\dcWikipedia;
+
+use Dotclear\Core\Process;
+
+class Install extends Process
+{
+    public static function init(): bool
+    {
+        return self::status(My::checkContext(My::INSTALL));
+    }
+
+    public static function process(): bool
+    {
+        if (!self::status()) {
+            return false;
+        }
+
+        try {
+            $settings = My::settings();
+            $settings->put('dcwp_add_lang_flag', true, App::blogWorkspace()::NS_BOOL, 'Add Wikipedia lang flag', false, true);
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
+        }
+
+        return true;
+    }
 }
-
-if (!dcCore::app()->newVersion(basename(__DIR__), dcCore::app()->plugins->moduleInfo(basename(__DIR__), 'version'))) {
-    return;
-}
-
-try {
-    dcCore::app()->blog->settings->addNamespace('dcwikipedia');
-    dcCore::app()->blog->settings->dcwikipedia->put('dcwp_add_lang_flag', true, 'boolean', 'Add Wikipedia lang flag', false, true);
-
-    return true;
-} catch (Exception $e) {
-    dcCore::app()->error->add($e->getMessage());
-}
-
-return false;
