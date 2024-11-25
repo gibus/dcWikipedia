@@ -50,6 +50,8 @@ echo (new Form('dcwikipedia-lang-form'))
     ->action(My::manageUrl())
     ->method('get')
     ->fields([
+        (new Hidden('process', 'Plugin')),
+        (new Hidden('p', 'dcWikipedia')),
         (new Hidden('popup', '1')),
         (new Hidden('value', $value)),
         (new Para())->items([
