@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcWikipedia;
 
 use Dotclear\Helper\File\Files;
+use Exception;
 
 class dcWikipediaReader extends \netHttp
 {

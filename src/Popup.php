@@ -34,8 +34,8 @@ $lang  = isset($_GET['lang']) ? rawurldecode($_GET['lang']) : '';
 
 $parser = dcWikipediaReader::quickParse('http://' . $lang . '.wikipedia.org/w/api.php?action=opensearch&format=xml&search=' . rawurlencode($value), DC_TPL_CACHE);
 
-$flag = 'no';
-$flag = App::blog()->settings->dcwikipedia->dcwp_add_lang_flag ? 'yes' : 'no';
+$settings = My::settings();
+$flag = $settings()->dcwp_add_lang_flag ? 'yes' : 'no';
 
 $head = My::jsLoad('popup') . My::cssLoad('style');
 

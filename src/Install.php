@@ -14,7 +14,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\dcWikipedia;
 
+use Dotclear\App;
 use Dotclear\Core\Process;
+use Exception;
 
 class Install extends Process
 {

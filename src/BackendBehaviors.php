@@ -22,8 +22,8 @@ class BackendBehaviors
 {
     public static function adminPostEditor($editor = '')
     {
-        $flag = 'no';
-        $flag = My::settings()->dcwp_add_lang_flag ? 'yes' : 'no';
+        $settings = My::settings();
+        $flag = $settings()->dcwp_add_lang_flag ? 'yes' : 'no';
 
         $res = '';
         if ($editor == 'dcLegacyEditor') {
