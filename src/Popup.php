@@ -17,7 +17,6 @@ namespace Dotclear\Plugin\dcWikipedia;
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -28,7 +27,6 @@ use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Radio;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Text;
-use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 
 $value = isset($_GET['value']) ? rawurldecode($_GET['value']) : '';
@@ -75,7 +73,7 @@ if (!$items) {
 } else {
     $choices = [];
     foreach ($items as $v => $k) {
-        $choices[] = (new Div)->class('dcwikipedia_item')->items([
+        $choices[] = (new Div())->class('dcwikipedia_item')->items([
             (new Para())->class('wikipedia_value')->items([
                 (new Radio('dcwikipedia_uri'))
                     ->value($k['uri']),

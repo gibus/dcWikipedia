@@ -10,6 +10,7 @@
  * @copyright Tomtom, Gibus gibus@sedrati.xyz
  * @copyright WTFLP Version 2 http://www.wtfpl.net/
  */
+
 namespace Dotclear\Plugin\dcWikipedia;
 
 use Dotclear\App;

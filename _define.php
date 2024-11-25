@@ -27,14 +27,14 @@ $this->registerModule(
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]),
-        'type'        => 'plugin',
-        'priority'    => ModuleDefine::DEFAULT_PRIORITY + 6,
-        'settings'    => [
+        'type'     => 'plugin',
+        'priority' => ModuleDefine::DEFAULT_PRIORITY + 6,
+        'settings' => [
             'self' => false,
         ],
 
-        'details'     => 'https://plugins.dotaddict.org/dc2/details/dcWikipedia',
-        'support'     => 'https://github.com/gibus/dcWikipedia',
-        'repository'  => 'https://raw.githubusercontent.com/gibus/dcWikipedia/master/dcstore.xml',
+        'details'    => 'https://plugins.dotaddict.org/dc2/details/dcWikipedia',
+        'support'    => 'https://github.com/gibus/dcWikipedia',
+        'repository' => 'https://raw.githubusercontent.com/gibus/dcWikipedia/master/dcstore.xml',
     ]
 );
