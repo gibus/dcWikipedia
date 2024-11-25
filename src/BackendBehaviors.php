@@ -22,8 +22,7 @@ class BackendBehaviors
 {
     public static function adminPostEditor($editor = '')
     {
-        $settings = My::settings();
-        $flag = $settings()->dcwp_add_lang_flag ? 'yes' : 'no';
+        $flag = App::blog()->settings->dcwikipedia->dcwp_add_lang_flag ? 'yes' : 'no';
 
         $res = '';
         if ($editor == 'dcLegacyEditor') {
