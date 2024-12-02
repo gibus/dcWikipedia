@@ -10,6 +10,9 @@
  * @copyright Tomtom, Gibus gibus@sedrati.xyz
  * @copyright WTFLP Version 2 http://www.wtfpl.net/
  */
+
+use Dotclear\App;
+use Dotclear\Core\Auth;
 use Dotclear\Module\ModuleDefine;
 
 if (!defined('DC_RC_PATH')) {
@@ -23,9 +26,9 @@ $this->registerModule(
     '0.3.2',
     [
         'requires'    => [['core', '2.27']],
-        'permissions' => dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+        'permissions' => App::auth()->makePermissions([
+            Auth::PERMISSION_USAGE,
+            Auth::PERMISSION_CONTENT_ADMIN,
         ]),
         'type'     => 'plugin',
         'priority' => ModuleDefine::DEFAULT_PRIORITY + 6,
