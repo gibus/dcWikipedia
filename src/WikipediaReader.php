@@ -15,9 +15,10 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcWikipedia;
 
 use Dotclear\Helper\File\Files;
+use Dotclear\Plugin\dcWikipedia\WikipediaParser;
 use Exception;
 
-class dcWikipediaReader extends \netHttp
+class WikipediaReader extends \netHttp
 {
     protected $user_agent        = 'Dotclear Wikipedia API reader/0.1';
     protected $timeout           = 5;
@@ -46,7 +47,8 @@ class dcWikipediaReader extends \netHttp
             return false;
         }
 
-        return new dcWikipediaParser($this->getContent());
+        $ret = new WikipediaParser($this->getContent());
+        return $ret;
     }
 
     public static function quickParse($url, $cache_dir = null)
@@ -141,7 +143,7 @@ class dcWikipediaReader extends \netHttp
 
                 return unserialize(file_get_contents($cached_file));
             case '200':
-                $modules = new dcWikipediaParser($this->getContent());
+                $modules = new WikipediaParser($this->getContent());
 
                 try {
                     Files::makeDir(dirname($cached_file), true);

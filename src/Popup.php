@@ -32,7 +32,8 @@ use Dotclear\Helper\L10n;
 $value = isset($_GET['value']) ? rawurldecode($_GET['value']) : '';
 $lang  = isset($_GET['lang']) ? rawurldecode($_GET['lang']) : '';
 
-$parser = dcWikipediaReader::quickParse('http://' . $lang . '.wikipedia.org/w/api.php?action=opensearch&format=xml&search=' . rawurlencode($value), DC_TPL_CACHE);
+$parser = WikipediaReader::quickParse('http://' . $lang . '.wikipedia.org/w/api.php?action=opensearch&format=xml&search=' . rawurlencode($value), DC_TPL_CACHE);
+
 
 $flag = App::blog()->settings->dcwikipedia->dcwp_add_lang_flag ? 'yes' : 'no';
 

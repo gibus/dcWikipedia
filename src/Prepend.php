@@ -10,5 +10,26 @@
  * @copyright Tomtom, Gibus gibus@sedrati.xyz
  * @copyright WTFLP Version 2 http://www.wtfpl.net/
  */
-require dirname(__FILE__) . '/inc/class.dc.wikipedia.reader.php';
-require dirname(__FILE__) . '/inc/class.dc.wikipedia.parser.php';
+
+namespace Dotclear\Plugin\dcWikipedia;
+
+use ArrayObject;
+use Dotclear\App;
+use Dotclear\Core\Process;
+
+class Prepend extends Process
+{
+    public static function init(): bool
+    {
+        return self::status(App::config()->configPath() != '');
+    }
+
+    public static function process(): bool
+    {
+        if (!self::status()) {
+            return false;
+        }
+
+        return true;
+    }
+}

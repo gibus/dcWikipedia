@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\dcWikipedia;
 
-class dcWikipediaParser
+class WikipediaParser
 {
     protected $xml;
     protected $items;
